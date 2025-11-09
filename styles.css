@@ -1,0 +1,398 @@
+/* 🌐 Общие настройки */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: rgb(239, 239, 239);
+}
+
+/* === 🎓 Хедер === */
+
+/* 🧱 Контейнер хедера */
+.header {
+    width: 100%;
+    background-color: #f5f0e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 30px;
+}
+
+/* 📦 Меню хедера: логотип + навигация + поиск */
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    padding-bottom: 15px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* 🔰 Логотип */
+.header-logo-btn img {
+    width: 120px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo-btn img:hover {
+    transform: scale(1.05);
+}
+
+/* 🔍 Поисковое меню */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -105px; /* хак для позиционирования */
+}
+
+.search {
+    --bgcolor: #f6f6f6;
+    display: flex;
+    padding: 14px;
+    background-color: var(--bgcolor);
+    border-radius: 28px;
+    gap: 5px;
+    transition: box-shadow 0.5s;
+}
+
+.search-input {
+    font-size: 16px;
+    color: #333333;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.search-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.search-input::placeholder {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.search-icon {
+    color: rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s;
+}
+
+/* ✨ Анимация при фокусе и наведении */
+.search:focus-within {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+}
+
+.search-icon:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+}
+
+/* 🧭 Навигация */
+.nav-bar {
+    display: flex;
+    align-items: center;
+}
+
+.header-btns {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.header-btn-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-btn-link:hover {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* === 🧭 Мейн === */
+
+/* 🎞️ Слайдер */
+.slider {
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* 🔘 Кнопки слайдера */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider-btn:hover {
+    background-color: #4caf50;
+    color: white;
+    transform: scale(1.) rotate(5deg);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* 📝 Описание сайта */
+.site-description {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff8e1;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.site-description p {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.site-description ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.site-description li {
+    font-size: 18px;
+    margin: 10px 0;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-description li::before {
+    content: "•";
+    color: #4caf50;
+    font-size: 24px;
+    margin-right: 8px;
+    display: none; /* скрыто, если используешь эмодзи */
+}
+
+/* ✨ Анимация при наведении */
+.site-description li:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.site-description p:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+
+/* 🏔️ Главный заголовок */
+.main-text {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin: 40px 0 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #4caf50, #00b894);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1s ease-out;
+}
+
+.category-title {
+  text-align: center;
+  font-size: 36px;
+  margin: 60px 0 30px;
+  color: #2c3e50;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 🃏 Cards */
+.card-group {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 0 40px 60px;
+}
+
+.place-card {
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  box-shadow: 4px 5px 14px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.4s ease;
+  max-width: 300px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.place-card:hover {
+  transform: translateY(-10px);
+}
+
+.place-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.place-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.place-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.place-description {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+}
+
+.place-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0.8;}
+
+
+  .section-intro {
+  font-size: 20px;
+  color: #2c3e50;
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto 20px;
+  line-height: 1.6;
+  font-family: 'Segoe UI', sans-serif;
+  opacity: 0.9;
+}
+
+/* === 🦶 Футер === */
+
+.footer {
+  background-color: #2c3e50; 
+  color: #f6f6f6; 
+  padding: 60px 20px 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+}
+
+/* 🔰 Логотип в футере */
+.footer-logo {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+/* 📝 Описание сайта в футере */
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* 🔗 Заголовки колонок */
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* 🔗 Ссылки и контакты */
+.footer-links,
+.footer-contacts {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.footer-links a,
+.footer-contacts a {
+  color: #f6f6f6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-contacts a:hover {
+  color: #4caf50; 
+}
+
+/* ⚖️ Нижняя строка футера */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
